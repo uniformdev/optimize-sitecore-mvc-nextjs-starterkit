@@ -1,0 +1,31 @@
+<!--
+    When enabled, Uniform uses Azure Blob Storage as a permanent cache for all JSON files that Uniform Service uses during next export.
+    
+    (Recommended) for Uniform Service set UNIFORM_CONTENT_URL to Data Container URL e.g. https://mvc-site.blob.core.windows.net/data
+-->
+
+<configuration xmlns:env="http://www.sitecore.net/xmlconfig/env/" xmlns:set="http://www.sitecore.net/xmlconfig/set/">
+  <sitecore>
+    <uniform>    
+      <siteConfigurations>
+        <siteConfiguration name="uniform-mvc-kit">        
+          <deployment>
+            <deploymentService>
+              <environmentVariables hint="raw:AddEnvironmentVariable">
+                <!-- WARNING: REPLACE THESE VALUES WITH THE RIGHT VALUES TO FIX MALFORMED XML -->
+                <variable name="UNIFORM_CONTENT_URL"><!>must specify content url<!></variable>
+              </environmentVariables>
+            </deploymentService>
+          </deployment>
+          <contentSync>
+            <pageContentSyncService set:ref="uniform/services/azureBlobPageContentSyncService">
+              <!-- WARNING: REPLACE THESE VALUES WITH THE RIGHT VALUES TO FIX MALFORMED XML -->
+              <ContainerName><!>must specify container name<!></ContainerName>
+              <ConnectionString><!>must specify connection string<!></ConnectionString>
+            </pageContentSyncService>
+          </contentSync>
+        </siteConfiguration>
+      </siteConfigurations>  
+    </uniform>
+  </sitecore>
+</configuration>
