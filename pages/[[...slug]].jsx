@@ -2,10 +2,10 @@ import React from "react";
 import { createConsoleLogger, getNextPageProps, NextPageProps, PageComponent, Placeholder, UniformContextProvider } from "@uniformdev/next";
 
 // Register React components here if you migrate from MVC to React
-const componentsIndex: any = {};
+const componentsIndex = {};
 
 // Root page handling all pages coming from Uniform Page Service API
-const Page = function (props: NextPageProps) {
+const Page = function (props) {
   return (
     <UniformContextProvider logger={createConsoleLogger()} componentMap={componentsIndex}>
       <PageComponent {...props}>

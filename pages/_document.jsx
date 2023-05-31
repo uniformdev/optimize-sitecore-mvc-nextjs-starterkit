@@ -5,7 +5,7 @@ import type { PageProps } from '@uniformdev/common-client';
 class MyDocument extends Document {
   render() {
     const { head } = this.props;
-    const page = this.props?.__NEXT_DATA__?.props?.pageProps as PageProps;
+    const page = this.props?.__NEXT_DATA__?.props?.pageProps;
     if (!page) {
       return null;
     }
