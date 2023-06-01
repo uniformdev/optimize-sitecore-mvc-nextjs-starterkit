@@ -1,7 +1,5 @@
 import Document, { Html, Main, } from 'next/document';
 
-import type { PageProps } from '@uniformdev/common-client';
-
 class MyDocument extends Document {
   render() {
     const { head } = this.props;
@@ -14,8 +12,11 @@ class MyDocument extends Document {
     const uniformHead = head.filter((el) => el.type !== "meta");
     return (
       <Html lang={lang}>
-        <head>{uniformHead}</head>
-        <body>
+        <head>
+          {uniformHead}
+          <meta charSet="utf-8" />
+        </head>
+        <body className="header-static">
             <Main />
         </body>
       </Html>
